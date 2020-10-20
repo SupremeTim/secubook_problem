@@ -12,7 +12,6 @@ RUN git clone https://github.com/SupremeTim/secubook_problem.git
 # 환경 변수 설정
 WORKDIR /opt/secubook_problem
 RUN cp profile profile_cp && mv profile_cp /etc && cd /etc && mv profile_cp profile
-RUN source /etc/profile
 
 # CodeAnalyzer 빌드
 WORKDIR /opt/secubook_problem/CodeAnalyzer/src
