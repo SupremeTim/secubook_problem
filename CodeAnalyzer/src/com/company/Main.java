@@ -6,21 +6,20 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String errorString = "문제 유형과 번호를 입력해주세요.";
+        String errorString = "문제 번호를 입력해주세요.";
         String correctString = "정답입니다!";
         String wrongString = "틀렸습니다.";
         Boolean result = false;
 
         if(args.length > 1) {
-            String problemCategory = args[0];
-            Integer problemNumber = Integer.parseInt(args[1]);
+            Integer problemNumber = Integer.parseInt(args[0]);
 
             String userProblemString = "";
             String solutionString = "";
 
             try {
-                File userFile = new File("/config/workspace/problems/" + problemCategory + "/problem" + problemNumber + ".java");
-                File solutionFile = new File("/opt/secubook_problem/solutions/" + problemCategory + "/solution" + problemNumber + ".java");
+                File userFile = new File("/config/workspace/problems/problem" + problemNumber + ".java");
+                File solutionFile = new File("/opt/secubook_problem/solutions/solution" + problemNumber + ".java");
 
                 FileReader userFileReader = new FileReader(userFile);
                 FileReader solutionFileReader = new FileReader(solutionFile);
