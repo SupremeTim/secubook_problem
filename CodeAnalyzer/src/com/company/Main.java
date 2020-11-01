@@ -49,7 +49,7 @@ public class Main {
 
                 // 결과 출력
                 StringBuilder fileOutString = new StringBuilder();
-                File logFile = new File("opt/secubook/log/score/score.txt");
+                File logFile = new File("/opt/secubook/log/score/score.txt");
                 BufferedWriter bw = new BufferedWriter(new FileWriter(logFile, true));
                 PrintWriter pw = new PrintWriter(bw, true);
 
@@ -61,6 +61,10 @@ public class Main {
                 // 결과 string
                 fileOutString.append(timeString + " " + userId + " " + problemNumber + " " + resultString + "\n");
                 pw.write(fileOutString.toString());
+                pw.flush();
+                pw.close();
+
+                System.out.println(fileOutString.toString());
 
             } catch (FileNotFoundException e) {
                 e.getStackTrace();
