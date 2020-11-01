@@ -1,6 +1,8 @@
 package com.company;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Main {
 
@@ -11,8 +13,9 @@ public class Main {
         String wrongString = "틀렸습니다.";
         Boolean result = false;
 
-        if(args.length > 0) {
-            Integer problemNumber = Integer.parseInt(args[0]);
+        if(args.length > 1) {
+            String userId = args[0];
+            Integer problemNumber = Integer.parseInt(args[1]);
 
             String userProblemString = "";
             String solutionString = "";
@@ -39,17 +42,33 @@ public class Main {
                 // TODO: 정답 checking 알고리즘
                 result = userProblemString.contains(solutionString);
 
+                String resultString = "";
+
+                if (result) resultString = correctString;
+                else resultString = wrongString;
+
+                // 결과 출력
+                StringBuilder fileOutString = new StringBuilder();
+                BufferedWriter bw = new BufferedWriter(new FileWriter("opt/secubook/log/score/score.txt", true));
+                PrintWriter pw = new PrintWriter(bw, true);
+
+                // 시간 계산
+                SimpleDateFormat format = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss");
+                Date time = new Date();
+                String timeString = format.format(time);
+
+                // 결과 string
+                fileOutString.append(timeString + " " + userId + " " + problemNumber + " " + resultString + "\n");
+                pw.write(fileOutString.toString());
+
             } catch (FileNotFoundException e) {
                 e.getStackTrace();
             } catch (IOException e) {
                 e.getStackTrace();
             }
 
-            if (result) {
-                System.out.println(correctString);
-            } else {
-                System.out.println(wrongString);
-            }
+
+
 
         }else {
             System.out.println(errorString);
