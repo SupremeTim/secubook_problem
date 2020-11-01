@@ -49,7 +49,8 @@ public class Main {
 
                 // 결과 출력
                 StringBuilder fileOutString = new StringBuilder();
-                BufferedWriter bw = new BufferedWriter(new FileWriter("opt/secubook/log/score/score.txt", true));
+                File logFile = new File("opt/secubook/log/score/score.txt");
+                BufferedWriter bw = new BufferedWriter(new FileWriter(logFile, true));
                 PrintWriter pw = new PrintWriter(bw, true);
 
                 // 시간 계산
