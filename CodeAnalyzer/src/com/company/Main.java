@@ -11,7 +11,7 @@ public class Main {
         String wrongString = "틀렸습니다.";
         Boolean result = false;
 
-        if(args.length > 1) {
+        if(args.length > 0) {
             Integer problemNumber = Integer.parseInt(args[0]);
 
             String userProblemString = "";
