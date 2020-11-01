@@ -22,3 +22,10 @@ docker start $1
 
 # 컨테이너 종료
 docker stop $1
+
+# 문제 복사
+cd /Users/ssionii/Desktop/secubook_problem
+cp -r problems problems_cp
+mv problems_cp /Users/ssionii/Desktop/secubook/user/userCode/$1/workspace
+cd /Users/ssionii/Desktop/secubook/user/userCode/$1/workspace
+mv problems_cp problems
