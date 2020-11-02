@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 # 사용자 폴더 생성
 # $1: 사용자 ID
 cd ~/secubook/user/userCode
@@ -16,8 +14,8 @@ docker create \
 -e PASSWORD=0000 \
 -e SUDO_PASSWORD=0000 \
 -v ~/secubook/user/userCode/$1:/config \
--v ~/secubook/log/score:/opt/$1/log/score \
-ssionii/secubook:v1
+-v ~/secubook/log/score:/opt/secubook/log/score \
+ssionii/secubook:v2
 
 # 컨테이너 실행
 docker start $1
