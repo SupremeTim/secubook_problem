@@ -2,9 +2,9 @@
 keyword = keyword.replaceAll("&", "&amp;");
 keyword = keyword.replaceAll("<", "&lt;");
 keyword = keyword.replaceAll(">", "&gt;");
-keyword = keyword.replaceAll("₩"", "&quot;");
+keyword = keyword.replaceAll("₩", "&quot;");
 keyword = keyword.replaceAll("'", "&#x27;");
-keyword = keyword.replaceAll("/"", "&#x2F;");
+keyword = keyword.replaceAll("/", "&#x2F;");
 keyword = keyword.replaceAll("(", "&#x28;");
 keyword = keyword.replaceAll(")", "&#x29;");
 검색어 : <%=keyword%>

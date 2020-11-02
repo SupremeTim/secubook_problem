@@ -3,6 +3,7 @@ package com.company;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 public class Main {
 
@@ -20,12 +21,17 @@ public class Main {
             String userProblemString = "";
             String solutionString = "";
 
+
             try {
-                File userFile = new File("/config/workspace/problems/problem" + problemNumber + ".java");
-                File solutionFile = new File("/opt/secubook_problem/solutions/solution" + problemNumber + ".java");
+//                File userFile = new File("/config/workspace/problems/problem" + problemNumber + ".java");
+//                File solutionFile = new File("/opt/secubook_problem/solutions/solution" + problemNumber + ".java");
+                File userFile = new File("/Users/ssionii/Desktop/secubook/user/userCode/"+ userId + "/workspace/problems/problem" + problemNumber + ".java");
+                File solutionFile = new File("/Users/ssionii/Desktop/secubook_problem/solutions/solution" + problemNumber + ".java");
+                File regFile = new File("/Users/ssionii/Desktop/secubook_problem/solutions/reg" + problemNumber + ".txt");
 
                 FileReader userFileReader = new FileReader(userFile);
                 FileReader solutionFileReader = new FileReader(solutionFile);
+                FileReader regFileReader = new FileReader(regFile);
 
                 int cur = 0;
                 while ((cur = userFileReader.read()) != -1) {
@@ -40,16 +46,31 @@ public class Main {
                 solutionFileReader.close();
 
                 // TODO: 정답 checking 알고리즘
-                result = userProblemString.contains(solutionString);
+                // 정규식 읽기
+                BufferedReader bufReader = new BufferedReader(regFileReader);
+                String regLine = "";
+                Boolean bool = false;
+                while((regLine = bufReader.readLine()) != null){
+                    Pattern pattern = Pattern.compile(regLine, Pattern.DOTALL);
+                    bool = pattern.matcher(userProblemString).matches();
 
+                    if(!bool) break;
+                }
+
+                String s = "if.fileName.matches.^..S+..?i..php.+[0-9]\".*";
+
+                result = bool;
+                bufReader.close();
+
+                // 결과 출력
                 String resultString = "";
 
                 if (result) resultString = correctString;
                 else resultString = wrongString;
 
-                // 결과 출력
                 StringBuilder fileOutString = new StringBuilder();
-                File logFile = new File("/opt/secubook/log/score/score.txt");
+//                File logFile = new File("/opt/secubook/log/score/score.txt");
+                File logFile = new File("/Users/ssionii/Desktop/secubook/log/score/score.txt");
                 BufferedWriter bw = new BufferedWriter(new FileWriter(logFile, true));
                 PrintWriter pw = new PrintWriter(bw, true);
 
@@ -68,8 +89,9 @@ public class Main {
 
             } catch (FileNotFoundException e) {
                 e.getStackTrace();
+                System.out.println(e.getMessage());
             } catch (IOException e) {
-                e.getStackTrace();
+                System.out.println(e.getMessage());
             }
 
 
