@@ -29,3 +29,7 @@ cp -r problems problems_cp
 mv problems_cp /Users/ssionii/Desktop/secubook/user/userCode/$1/workspace
 cd /Users/ssionii/Desktop/secubook/user/userCode/$1/workspace
 mv problems_cp problems
+
+# CodeAnalyzer 다시 생성
+docker start $1
+docker exec $1 cd CodeAnalyzer/src && javac com/company/Main.java

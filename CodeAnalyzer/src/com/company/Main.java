@@ -23,11 +23,12 @@ public class Main {
 
 
             try {
-//                File userFile = new File("/config/workspace/problems/problem" + problemNumber + ".java");
-//                File solutionFile = new File("/opt/secubook_problem/solutions/solution" + problemNumber + ".java");
-                File userFile = new File("/Users/ssionii/Desktop/secubook/user/userCode/"+ userId + "/workspace/problems/problem" + problemNumber + ".java");
-                File solutionFile = new File("/Users/ssionii/Desktop/secubook_problem/solutions/solution" + problemNumber + ".java");
-                File regFile = new File("/Users/ssionii/Desktop/secubook_problem/solutions/reg" + problemNumber + ".txt");
+                File userFile = new File("/config/workspace/problems/problem" + problemNumber + ".java");
+                File solutionFile = new File("/opt/secubook_problem/solutions/solution" + problemNumber + ".java");
+                File regFile = new File("/opt/secubook_problem/solutions/reg" + problemNumber + ".txt");
+//                File userFile = new File("/Users/ssionii/Desktop/secubook/user/userCode/"+ userId + "/workspace/problems/problem" + problemNumber + ".java");
+//                File solutionFile = new File("/Users/ssionii/Desktop/secubook_problem/solutions/solution" + problemNumber + ".java");
+//                File regFile = new File("/Users/ssionii/Desktop/secubook_problem/solutions/reg" + problemNumber + ".txt");
 
                 FileReader userFileReader = new FileReader(userFile);
                 FileReader solutionFileReader = new FileReader(solutionFile);
@@ -57,7 +58,6 @@ public class Main {
                     if(!bool) break;
                 }
 
-                String s = "if.fileName.matches.^..S+..?i..php.+[0-9]\".*";
 
                 result = bool;
                 bufReader.close();
@@ -69,8 +69,8 @@ public class Main {
                 else resultString = wrongString;
 
                 StringBuilder fileOutString = new StringBuilder();
-//                File logFile = new File("/opt/secubook/log/score/score.txt");
-                File logFile = new File("/Users/ssionii/Desktop/secubook/log/score/score.txt");
+                File logFile = new File("/opt/secubook/log/score/score.txt");
+//                File logFile = new File("/Users/ssionii/Desktop/secubook/log/score/score.txt");
                 BufferedWriter bw = new BufferedWriter(new FileWriter(logFile, true));
                 PrintWriter pw = new PrintWriter(bw, true);
 
