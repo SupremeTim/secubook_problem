@@ -10,8 +10,8 @@ public class Main {
     public static void main(String[] args) {
 
         String errorString = "문제 번호를 입력해주세요.";
-        String correctString = "정답입니다!";
-        String wrongString = "틀렸습니다.";
+        String correctString = "1";
+        String wrongString = "0";
         Boolean result = false;
 
         if(args.length > 1) {
@@ -26,9 +26,6 @@ public class Main {
                 File userFile = new File("/config/workspace/problems/problem" + problemNumber + ".java");
                 File solutionFile = new File("/opt/secubook_problem/solutions/solution" + problemNumber + ".java");
                 File regFile = new File("/opt/secubook_problem/solutions/reg" + problemNumber + ".txt");
-//                File userFile = new File("/Users/ssionii/Desktop/secubook/user/userCode/"+ userId + "/workspace/problems/problem" + problemNumber + ".java");
-//                File solutionFile = new File("/Users/ssionii/Desktop/secubook_problem/solutions/solution" + problemNumber + ".java");
-//                File regFile = new File("/Users/ssionii/Desktop/secubook_problem/solutions/reg" + problemNumber + ".txt");
 
                 FileReader userFileReader = new FileReader(userFile);
                 FileReader solutionFileReader = new FileReader(solutionFile);
@@ -70,7 +67,6 @@ public class Main {
 
                 StringBuilder fileOutString = new StringBuilder();
                 File logFile = new File("/opt/secubook/log/score/score.txt");
-//                File logFile = new File("/Users/ssionii/Desktop/secubook/log/score/score.txt");
                 BufferedWriter bw = new BufferedWriter(new FileWriter(logFile, true));
                 PrintWriter pw = new PrintWriter(bw, true);
 
