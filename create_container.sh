@@ -12,7 +12,7 @@ docker create \
 -e TZ=Asia/Seoul \
 -e PASSWORD=0000 \
 -e SUDO_PASSWORD=0000 \
--p 80:$2 \
+-p $2:8443 \
 -v /Users/ssionii/Desktop/secubook/user/userCode/$1:/config \
 -v /Users/ssionii/Desktop/secubook/log/score:/opt/$1/log/score \
 secubook
