@@ -1,0 +1,4 @@
+.*PreparedStatement.*
+.*SELECT.*firstname.*FROM.*user.*WHERE.*firstname.*
+.*conn.prepareStatement.*
+.*setString.*Manager.*

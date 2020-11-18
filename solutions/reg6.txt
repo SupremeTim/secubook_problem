@@ -1,0 +1,3 @@
+.*add(“notepad”).*
+.*add(“calc.*
+.*if.*contains(cmd).*
